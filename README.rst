@@ -11,6 +11,13 @@ available.
 
 **No scraping yet.** Tables have been pulled manually. See: tables/
 
+
+Requirements
+------------
+
+Python 2.7 & biopython.
+
+
 Usage
 -----
 
