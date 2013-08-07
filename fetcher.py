@@ -20,7 +20,7 @@ from Bio import Entrez
 from Bio import SeqIO
 
 Entrez.email = "Beatson.Lab@gmail.com"
-
+delchars = ''.join(c for c in map(chr, range(256)) if not c.isalnum())
 
 def fetch(csv_file):
     """
@@ -29,10 +29,16 @@ def fetch(csv_file):
     with open(csv_file) as fin, open(out, 'w') as fout:
         for line in fin:
             id, acc = line.split(',')
-            if acc != '\n':
-                handle = Entrez.efetch(db="nucleotide",
-                                           id=acc.strip(),                                
-                                           rettype="gbwithparts")                              
+            acc =  acc.translate(None, delchars)
+            if acc != '':
+                print id, len(acc)
+                try:
+                    handle = Entrez.efetch(db="nucleotide",
+                                               id=acc.strip(),                                
+                                               rettype="gbwithparts")                              
+                except:
+                    print "Broken accession %s" % (acc)
+                    break
                 gene = SeqIO.read(handle, "genbank")                                      
                 handle.close()                                      
                 count = 0
