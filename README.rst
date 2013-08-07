@@ -113,7 +113,11 @@ Gives::
     GTTATTAATTGCTTCTGTAGCAAAGTTAGCACGTCAATATGTTGTTCACTGA
 
 I loaded these up into JalView and their is an allele change at positions 462 
-(BEL-2) and 478 (BEL-3). See:
+(BEL-2) and 478 (BEL-3).
+
+.. image:: https://raw.github.com/mscook/B2LScrape/master/BEL-screenshot.png
+    :alt: BEL Screenshot
+    :align: center
 
 
 Whats with the fasta header formatting?
