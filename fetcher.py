@@ -31,7 +31,7 @@ def fetch(csv_file):
             id, acc = line.split(',')
             acc =  acc.translate(None, delchars)
             if acc != '':
-                print id, len(acc)
+                print id
                 try:
                     handle = Entrez.efetch(db="nucleotide",
                                                id=acc.strip(),                                
